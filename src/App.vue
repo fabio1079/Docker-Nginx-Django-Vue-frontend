@@ -47,7 +47,7 @@ export default {
 
   methods: {
     async getToken() {
-      let response = await fetch("http://127.0.0.1:8000/token-auth/", {
+      let response = await fetch("/api/token-auth/", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -61,7 +61,7 @@ export default {
     },
 
     async getTodos() {
-      let response = await fetch("http://127.0.0.1:8000/todos/", {
+      let response = await fetch("/api/todos/", {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -82,7 +82,7 @@ export default {
         return;
       }
 
-      let response = await fetch("http://127.0.0.1:8000/todos/", {
+      let response = await fetch("/api/todos/", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -99,7 +99,7 @@ export default {
     },
 
     async toggleTodo(todo) {
-      fetch(`http://127.0.0.1:8000/todos/${todo.id}/`, {
+      fetch(`/api/todos/${todo.id}/`, {
         method: "PATCH",
         headers: {
           Accept: "application/json",
@@ -124,7 +124,7 @@ export default {
          * Yeah ugly...
          * but it works and I don't want to create a custom route
          */
-        fetch(`http://127.0.0.1:8000/todos/${todo.id}/`, {
+        fetch(`/api/todos/${todo.id}/`, {
           method: "DELETE",
           headers: {
             Accept: "application/json",
